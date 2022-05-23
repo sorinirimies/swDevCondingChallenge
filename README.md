@@ -22,8 +22,8 @@ The design of the app is open to the implementer, however the minimum requiremen
 
 - Main screen should contain a similar to grid layout, which shows the title, a poster as backdgrop.
 - Detail screen should show the movie explanation, cast, and some additional movie meta data like release date, ranking.
-- 
-For an inspiration on a design see:
+- You can also use loading screens or spinners and or in out animations as a transition between screens.
+- For an inspiration on a design see:
 https://play.google.com/store/apps/details?id=com.irfangujjar.tmdb&hl=en_US&gl=US
 
 ###  3. Tech Stack
