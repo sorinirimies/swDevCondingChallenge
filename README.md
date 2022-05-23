@@ -27,7 +27,7 @@ The design of the app is open to the implementer, however the minimum requiremen
 https://play.google.com/store/apps/details?id=com.irfangujjar.tmdb&hl=en_US&gl=US
 
 ###  3. Tech Stack
-The app should make use of MVVM or MVI architecture, REST or GraphQL(that would be an additional +1) http client, kotin corotuines, jetpack compose for the views, an API interface and service or repositiory, and optionally persistence using DataStore. 
+The app should make use of MVVM or MVI architecture, REST or GraphQL(that would be an additional +1) http client, kotin coroutines, jetpack compose for views, an API interface and/or service, a repositiory and persistence using DataStore. 
 
 
 Good luck !
