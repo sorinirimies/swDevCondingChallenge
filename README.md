@@ -15,10 +15,12 @@ Before we start there are some rules of engagement:
 ## The Challenge
 
 The challenge consits in:
-### 1. Write a small The Movies DB App made up of a main screen and a details screen. 
+### 1. The Movie DB Demo App
+Write a small The Movies DB App made up of a main screen and a details screen. 
 
 ### 2. Features 
-The design of the app is open to the implementer, however the minimum requirements are as follow:
+The design of the app is open to the implementer and given the timie is short doesn't need to be ultra polished.
+Having that in mind the minimum requirements are as follow:
 
 - Main screen should contain a similar to grid layout, which shows the title, a poster as backdgrop.
 - Detail screen should show the movie explanation, cast, and some additional movie meta data like release date, ranking.
@@ -30,9 +32,6 @@ https://play.google.com/store/apps/details?id=com.irfangujjar.tmdb&hl=en_US&gl=U
 The app should make use of MVVM or MVI architecture, REST or GraphQL(that would be an additional +1) http client, kotin coroutines, jetpack compose for views, an API interface and/or service, a repositiory and persistence using DataStore. 
 
 
-Good luck !
-
-
-
+Good luck & have fun !
 
 
