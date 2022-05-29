@@ -37,5 +37,4 @@ internal class MovieRepositoryImpl(
     private fun mapApiMoviesToDomainMovies(apiMovies: List<ApiMovie>): List<Movie> {
         return apiMovies.map { it.toDomainMovie() }
     }
-
 }

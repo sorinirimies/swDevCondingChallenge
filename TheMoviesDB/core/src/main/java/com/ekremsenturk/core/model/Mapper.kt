@@ -5,6 +5,8 @@ import com.ekremsenturk.api.data.ApiCrewMember
 import com.ekremsenturk.api.data.ApiMovie
 import com.ekremsenturk.api.data.ApiMovieDetails
 
+//Mapper extension functions to map from api to domain models.
+
 internal fun ApiMovie.toDomainMovie(): Movie {
     return Movie(
         id = id,
