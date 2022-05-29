@@ -2,6 +2,7 @@ buildscript {
     ext {
         compose_version = '1.2.0-beta02'
         koin_version = '3.2.0'
+        nav_version = "2.4.2"
         retrofit_version = '2.9.0'
         timber_version = '5.0.1'
     }
