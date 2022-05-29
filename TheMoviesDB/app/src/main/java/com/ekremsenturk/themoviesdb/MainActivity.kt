@@ -10,11 +10,29 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ekremsenturk.core.MovieRepository
 import com.ekremsenturk.themoviesdb.ui.theme.TheMoviesDBTheme
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.koin.androidx.scope.activityScope
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.get
+import timber.log.Timber
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), KoinComponent {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                get<MovieRepository>().getNowPlayingMovies().forEach {
+                    Timber.e(it.poster)
+                }
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
+
+        }
         setContent {
             TheMoviesDBTheme {
                 // A surface container using the 'background' color from the theme
