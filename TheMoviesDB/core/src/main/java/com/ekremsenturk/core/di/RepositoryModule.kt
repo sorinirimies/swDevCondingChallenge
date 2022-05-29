@@ -5,7 +5,7 @@ import com.ekremsenturk.core.MovieRepository
 import com.ekremsenturk.core.MovieRepositoryImpl
 import org.koin.dsl.module
 
-val repositoryModule = module {
+private val repositoryModule = module {
     single<MovieRepository> { MovieRepositoryImpl(get()) }
 }
 

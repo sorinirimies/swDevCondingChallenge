@@ -25,9 +25,10 @@ class MainActivity : ComponentActivity(), KoinComponent {
         super.onCreate(savedInstanceState)
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                get<MovieRepository>().getNowPlayingMovies().forEach {
-                    Timber.e(it.poster)
-                }
+                val movieRepository = get<MovieRepository>()
+                val movie = movieRepository.getNowPlayingMovies().first()
+                val movieDetails = movieRepository.getMovieDetails(movie.id)
+                Timber.e(movieDetails.genres.toString())
             } catch (e: Exception) {
                 Timber.e(e)
             }
