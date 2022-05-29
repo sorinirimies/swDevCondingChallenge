@@ -1,6 +1,8 @@
 package com.ekremsenturk.api.di
 
-import com.ekremsenturk.api.ApiService
+import com.ekremsenturk.api.ApiClient
+import com.ekremsenturk.api.ApiClientImpl
+import com.ekremsenturk.api.service.ApiService
 import com.ekremsenturk.api.BuildConfig
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
@@ -17,6 +19,7 @@ val serviceModule = module {
     single { buildOkhttpClient() }
     single { buildRetrofitClient(get()) }
     single { buildApiService(get()) }
+    single<ApiClient> { ApiClientImpl(get()) }
 }
 
 private fun buildRetrofitClient(okhttpClient: OkHttpClient): Retrofit {

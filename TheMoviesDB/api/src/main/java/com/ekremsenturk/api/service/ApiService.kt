@@ -1,4 +1,4 @@
-package com.ekremsenturk.api
+package com.ekremsenturk.api.service
 
 import com.ekremsenturk.api.data.ApiMovieDetails
 import com.ekremsenturk.api.data.MovieResponse
@@ -6,10 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-/**
- * Provides access to the TMDB backend.
- */
-interface ApiService {
+internal interface ApiService {
 
     @GET("/3/movie/{movie_id}")
     suspend fun getDetails(@Path("movie_id") movieId: Int, @Query("append_to_response") appendToResponse: String): ApiMovieDetails
