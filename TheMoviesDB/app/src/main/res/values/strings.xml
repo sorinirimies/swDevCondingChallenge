@@ -14,4 +14,5 @@
     <string name="detail_screen_cast_and_crew_title">Cast &amp; Crew</string>
     <string name="overview_screen_similar_movies_title">Similar</string>
     <string name="overview_screen_recommendations_title">Recommended</string>
+    <string name="overview_screen_release_date">Release date: %s</string>
 </resources>

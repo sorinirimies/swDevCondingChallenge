@@ -8,9 +8,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -69,11 +72,23 @@ fun DetailScreen(
                     contentDescription = null
                 )
                 Row(modifier = Modifier.padding(horizontal = 16.dp)) {
-                    AsyncImage(
-                        modifier = Modifier.width(120.dp),
-                        model = detailUiState.poster,
-                        contentDescription = null
-                    )
+                    Column {
+                        AsyncImage(
+                            modifier = Modifier.width(120.dp),
+                            model = detailUiState.poster,
+                            contentDescription = null
+                        )
+                        Row(modifier = Modifier.align(CenterHorizontally)) {
+                            Icon(
+                                modifier = Modifier
+                                    .size(16.dp)
+                                    .align(CenterVertically),
+                                imageVector = Icons.Default.Star,
+                                contentDescription = null
+                            )
+                            Text(text = "${detailUiState.voteAverage} (${detailUiState.voteCount})")
+                        }
+                    }
                     Column(modifier = Modifier.padding(start = 16.dp)) {
                         Text(
                             text = detailUiState.title,
@@ -86,6 +101,13 @@ fun DetailScreen(
                         Text(
                             text = detailUiState.overview,
                             style = MaterialTheme.typography.caption
+                        )
+                        Text(
+                            text = stringResource(
+                                id = R.string.overview_screen_release_date,
+                                detailUiState.releaseDate
+                            ),
+                            style = MaterialTheme.typography.body2
                         )
                     }
                 }

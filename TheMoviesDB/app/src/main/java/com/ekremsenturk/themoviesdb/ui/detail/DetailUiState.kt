@@ -10,6 +10,7 @@ data class DetailUiState(
     val backdrop: String?,
     val poster: String?,
     val overview: String,
+    val releaseDate: String,
     val genres: String,
     val voteCount: Int,
     val voteAverage: Float,
