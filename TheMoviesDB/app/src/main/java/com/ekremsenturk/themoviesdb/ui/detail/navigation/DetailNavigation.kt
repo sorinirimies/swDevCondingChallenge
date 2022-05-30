@@ -20,10 +20,13 @@ fun NavGraphBuilder.detailGraph(
         route = "${DetailDestination.route}/{${DetailDestination.movieIdArg}}",
         arguments = listOf(
             navArgument(DetailDestination.movieIdArg) {
-                type = NavType.StringType
+                type = NavType.IntType
             }
         )
     ) {
-        DetailRoute(onBackClick = onBackClick)
+        DetailRoute(
+            onBackClick = onBackClick,
+            movieId = it.arguments!!.getInt(DetailDestination.movieIdArg)
+        )
     }
 }

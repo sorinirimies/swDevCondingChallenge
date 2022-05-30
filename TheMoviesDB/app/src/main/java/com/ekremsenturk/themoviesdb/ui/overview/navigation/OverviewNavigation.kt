@@ -12,7 +12,7 @@ object OverviewDestination : NavigationDestination {
 }
 
 fun NavGraphBuilder.overviewGraph(
-    navigateToDetails: (String) -> Unit,
+    navigateToDetails: (Int) -> Unit,
     nestedGraphs: NavGraphBuilder.() -> Unit
 ) {
     navigation(

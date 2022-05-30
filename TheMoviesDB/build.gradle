@@ -1,5 +1,6 @@
 buildscript {
     ext {
+        coil_version = '2.1.0'
         compose_version = '1.2.0-beta02'
         koin_version = '3.2.0'
         nav_version = "2.4.2"

@@ -1,7 +1,5 @@
 package com.ekremsenturk.themoviesdb.ui
 
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController

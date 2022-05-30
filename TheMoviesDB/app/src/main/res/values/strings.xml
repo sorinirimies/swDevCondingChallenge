@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">The Movies DB</string>
+
+    <!-- Overview screen -->
+    <string name="overview_screen_toolbar_title">Movies</string>
+    <string name="overview_screen_popular_movies_title">Popular</string>
+    <string name="overview_screen_now_playing_movies_title">Playing in Theatres</string>
+    <string name="overview_screen_top_rated_movies_title">Top Rated</string>
+    <string name="overview_screen_upcoming_movies_title">Upcoming</string>
+    <string name="overview_screen_movies_empty_text">Movies could not be loaded</string>
+
+    <!-- Detail screen -->
+    <string name="detail_screen_toolbar_title">Movie details</string>
+    <string name="detail_screen_cast_and_crew_title">Cast &amp; Crew</string>
 </resources>
