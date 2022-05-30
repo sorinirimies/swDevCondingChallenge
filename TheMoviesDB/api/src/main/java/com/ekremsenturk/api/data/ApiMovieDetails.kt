@@ -18,5 +18,8 @@ data class ApiMovieDetails(
     val voteCount: Int,
     @SerializedName("vote_average")
     val voteAverage: Float,
-    val credits: ApiCredits
+    val credits: ApiCredits,
+    @SerializedName("similar")
+    val similarMovies: MovieResponse,
+    val recommendations: MovieResponse
 )

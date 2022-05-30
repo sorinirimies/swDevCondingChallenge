@@ -22,7 +22,9 @@ class DetailViewModel(
         voteCount = 0,
         voteAverage = 0.0f,
         cast = emptyList(),
-        crew = emptyList()
+        crew = emptyList(),
+        recommendations = emptyList(),
+        similarMovies = emptyList()
     ))
         private set
 
@@ -39,7 +41,9 @@ class DetailViewModel(
                 voteCount = movieDetails.voteCount,
                 voteAverage = movieDetails.voteAverage,
                 cast = movieDetails.cast,
-                crew = movieDetails.crew
+                crew = movieDetails.crew,
+                recommendations = movieDetails.recommendations,
+                similarMovies = movieDetails.similarMovies
             )
         }
     }

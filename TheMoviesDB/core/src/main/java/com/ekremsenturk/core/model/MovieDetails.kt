@@ -11,5 +11,7 @@ data class MovieDetails(
     val voteCount: Int,
     val voteAverage: Float,
     val cast: List<CastMember>,
-    val crew: List<CrewMember>
+    val crew: List<CrewMember>,
+    val similarMovies: List<Movie>,
+    val recommendations: List<Movie>
 )

@@ -13,9 +13,11 @@ fun TheMoviesDBApp() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = OverviewDestination.route) {
         overviewGraph(
-            navigateToDetails = { navController.navigate("${DetailDestination.route}/$it")},
+            navigateToDetails = { navController.navigate("${DetailDestination.route}/$it") },
             nestedGraphs = {
-                detailGraph { navController.popBackStack() }
+                detailGraph(
+                    onItemClick = { navController.navigate("${DetailDestination.route}/$it") },
+                    onBackClick = { navController.popBackStack() })
             }
         )
     }

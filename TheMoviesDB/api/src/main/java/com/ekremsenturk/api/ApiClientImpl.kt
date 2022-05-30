@@ -9,7 +9,7 @@ internal class ApiClientImpl(
 ) : ApiClient {
 
     override suspend fun getDetails(movieId: Int): ApiMovieDetails {
-        return apiService.getDetails(movieId, "credits")
+        return apiService.getDetails(movieId, "credits,similar,recommendations")
     }
 
     override suspend fun getNowPlayingMovies(): List<ApiMovie> {

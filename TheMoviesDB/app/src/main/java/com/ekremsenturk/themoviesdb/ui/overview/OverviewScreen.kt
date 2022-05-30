@@ -53,8 +53,8 @@ fun OverviewScreen(
         OverviewToolbar()
         Column(
             modifier = Modifier
-                .padding(horizontal = 16.dp)
                 .verticalScroll(rememberScrollState(), enabled = true)
+                .padding(bottom = 16.dp)
         ) {
             HorizontalMovieGallery(
                 title = stringResource(id = R.string.overview_screen_popular_movies_title),
@@ -107,9 +107,9 @@ fun HorizontalMovieGallery(
         modifier = modifier
     ) {
         Text(
-            modifier = Modifier.padding(vertical = 16.dp),
+            modifier = Modifier.padding(all = 16.dp),
             text = title,
-            fontSize = 16.sp
+            style = MaterialTheme.typography.h6
         )
         if (loading) {
             CircularProgressIndicator(modifier = Modifier.align(CenterHorizontally))

@@ -14,6 +14,7 @@ object DetailDestination : NavigationDestination {
 }
 
 fun NavGraphBuilder.detailGraph(
+    onItemClick: (Int) -> Unit,
     onBackClick: () -> Unit
 ) {
     composable(
@@ -25,6 +26,7 @@ fun NavGraphBuilder.detailGraph(
         )
     ) {
         DetailRoute(
+            onItemClick = onItemClick,
             onBackClick = onBackClick,
             movieId = it.arguments!!.getInt(DetailDestination.movieIdArg)
         )

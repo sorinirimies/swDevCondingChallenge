@@ -15,16 +15,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.ekremsenturk.core.model.CastMember
 import com.ekremsenturk.core.model.CrewMember
 import com.ekremsenturk.themoviesdb.R
+import com.ekremsenturk.themoviesdb.ui.overview.HorizontalMovieGallery
 import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun DetailRoute(
     modifier: Modifier = Modifier,
+    onItemClick: (Int) -> Unit,
     onBackClick: () -> Unit,
     movieId: Int,
     viewModel: DetailViewModel = getViewModel()
@@ -38,6 +39,7 @@ fun DetailRoute(
     DetailScreen(
         modifier = modifier,
         detailUiState = uiState,
+        onItemClick = onItemClick,
         onBackClick = onBackClick
     )
 }
@@ -46,6 +48,7 @@ fun DetailRoute(
 fun DetailScreen(
     modifier: Modifier,
     detailUiState: DetailUiState,
+    onItemClick: (Int) -> Unit,
     onBackClick: () -> Unit
 ) {
     Column(modifier = modifier.fillMaxSize()) {
@@ -55,7 +58,11 @@ fun DetailScreen(
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         } else {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState(), enabled = true)
+                    .padding(bottom = 16.dp)
+            ) {
                 AsyncImage(
                     modifier = Modifier.fillMaxWidth(),
                     model = detailUiState.backdrop,
@@ -82,9 +89,20 @@ fun DetailScreen(
                         )
                     }
                 }
-
+                PeopleGallery(cast = detailUiState.cast, crew = detailUiState.crew)
+                HorizontalMovieGallery(
+                    title = stringResource(id = R.string.overview_screen_recommendations_title),
+                    movies = detailUiState.recommendations,
+                    loading = false,
+                    onItemClick = onItemClick
+                )
+                HorizontalMovieGallery(
+                    title = stringResource(id = R.string.overview_screen_similar_movies_title),
+                    movies = detailUiState.similarMovies,
+                    loading = false,
+                    onItemClick = onItemClick
+                )
             }
-            PeopleGallery(cast = detailUiState.cast, crew = detailUiState.crew)
         }
     }
 }
@@ -114,7 +132,9 @@ fun DetailToolbar(
 fun PeopleGallery(cast: List<CastMember>, crew: List<CrewMember>) {
     Text(
         text = stringResource(id = R.string.detail_screen_cast_and_crew_title),
-        modifier = Modifier.padding(vertical = 16.dp).padding(start = 16.dp),
+        modifier = Modifier
+            .padding(vertical = 16.dp)
+            .padding(start = 16.dp),
         style = MaterialTheme.typography.h6
     )
     LazyRow(

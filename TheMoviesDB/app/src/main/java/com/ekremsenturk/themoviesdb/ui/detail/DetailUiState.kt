@@ -2,6 +2,7 @@ package com.ekremsenturk.themoviesdb.ui.detail
 
 import com.ekremsenturk.core.model.CastMember
 import com.ekremsenturk.core.model.CrewMember
+import com.ekremsenturk.core.model.Movie
 
 data class DetailUiState(
     val loading: Boolean,
@@ -13,5 +14,7 @@ data class DetailUiState(
     val voteCount: Int,
     val voteAverage: Float,
     val cast: List<CastMember>,
-    val crew: List<CrewMember>
+    val crew: List<CrewMember>,
+    val recommendations: List<Movie>,
+    val similarMovies: List<Movie>
 )

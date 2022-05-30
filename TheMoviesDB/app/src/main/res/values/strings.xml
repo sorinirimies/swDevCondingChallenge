@@ -12,4 +12,6 @@
     <!-- Detail screen -->
     <string name="detail_screen_toolbar_title">Movie details</string>
     <string name="detail_screen_cast_and_crew_title">Cast &amp; Crew</string>
+    <string name="overview_screen_similar_movies_title">Similar</string>
+    <string name="overview_screen_recommendations_title">Recommended</string>
 </resources>

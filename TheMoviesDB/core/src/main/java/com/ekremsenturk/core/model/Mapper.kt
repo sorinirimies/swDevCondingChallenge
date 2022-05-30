@@ -30,7 +30,9 @@ internal fun ApiMovieDetails.toDomainMovieDetails(): MovieDetails {
         voteCount = voteCount,
         voteAverage = voteAverage,
         cast = credits.cast.map { it.toDomainCastMember() },
-        crew = credits.crew.map { it.toDomainCrewMember() }
+        crew = credits.crew.map { it.toDomainCrewMember() },
+        similarMovies = similarMovies.results.map { it.toDomainMovie() },
+        recommendations = recommendations.results.map { it.toDomainMovie() }
     )
 }
 
