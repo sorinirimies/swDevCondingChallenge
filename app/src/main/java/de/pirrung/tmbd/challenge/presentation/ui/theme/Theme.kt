@@ -1,4 +1,4 @@
-package de.pirrung.tmbd.challenge.ui.theme
+package de.pirrung.tmbd.challenge.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
