@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TMDB-Coding-Challenge</string>
+    <string name="overview_top_app_bar_title">Movies</string>
+    <string name="movie_content_description">Movie Poster</string>
 </resources>

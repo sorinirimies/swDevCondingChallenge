@@ -6,71 +6,69 @@ import de.pirrung.tmbd.challenge.data.remote.dto.toMovie
 import de.pirrung.tmbd.challenge.domain.model.Movie
 import de.pirrung.tmbd.challenge.domain.model.MovieDetails
 import de.pirrung.tmbd.challenge.domain.repository.TMDBRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 
 class TMDBRepositoryImpl(
     private val api: TMDBApi
 ) : TMDBRepository {
-    override suspend fun getPopularMovies(): Result<List<Movie>> {
+    override suspend fun getPopularMovies(): Flow<List<Movie>> {
         return try {
             val movieDto = api.getPopularMovies()
-            Result.success(
-                movieDto.results.map { it.toMovie() }
-            )
+            flowOf(movieDto.results.map { it.toMovie() })
         } catch (e: Exception) {
             e.printStackTrace()
-            Result.failure(e)
+            flowOf(emptyList())
         }
     }
 
-    override suspend fun getNowPlayingMovies(): Result<List<Movie>> {
+    override suspend fun getNowPlayingMovies(): Flow<List<Movie>> {
         return try {
             val movieDto = api.getPopularMovies()
-            Result.success(
-                movieDto.results.map { it.toMovie() }
-            )
+            flowOf(movieDto.results.map { it.toMovie() })
         } catch (e: Exception) {
             e.printStackTrace()
-            Result.failure(e)
+            flowOf(emptyList())
         }
     }
 
-    override suspend fun getTopRatedMovies(): Result<List<Movie>> {
+    override suspend fun getTopRatedMovies(): Flow<List<Movie>> {
         return try {
             val movieDto = api.getPopularMovies()
-            Result.success(
+            flowOf(
                 movieDto.results.map { it.toMovie() }
             )
         } catch (e: Exception) {
             e.printStackTrace()
-            Result.failure(e)
+            flowOf(emptyList())
         }
     }
 
-    override suspend fun getUpcomingMovies(): Result<List<Movie>> {
+    override suspend fun getUpcomingMovies(): Flow<List<Movie>> {
         return try {
             val movieDto = api.getPopularMovies()
-            Result.success(
+            flowOf(
                 movieDto.results.map { it.toMovie() }
             )
         } catch (e: Exception) {
             e.printStackTrace()
-            Result.failure(e)
+            flowOf(emptyList())
         }
     }
 
     override suspend fun getMovieDetails(
         movieId: Int
-    ): Result<MovieDetails> {
+    ): Flow<MovieDetails> {
         return try {
             val movieDto = api.getMovieDetails(
                 movieId = movieId
             )
-            Result.success(
+            flowOf(
                 movieDto.toMovieDetails()
             )
         } catch (e: Exception) {
             e.printStackTrace()
-            Result.failure(e)
+            flowOf()
         }
     }
 

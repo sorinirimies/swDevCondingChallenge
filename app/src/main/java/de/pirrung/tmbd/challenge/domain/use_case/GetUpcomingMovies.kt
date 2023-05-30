@@ -4,11 +4,12 @@ import de.pirrung.tmbd.challenge.domain.model.Movie
 import de.pirrung.tmbd.challenge.domain.repository.TMDBRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetPopularMovies(
+class GetUpcomingMovies(
     private val repository: TMDBRepository
 ) {
+
     suspend operator fun invoke(): Flow<List<Movie>> {
-        return repository.getPopularMovies()
+        return repository.getUpcomingMovies()
     }
 
 }

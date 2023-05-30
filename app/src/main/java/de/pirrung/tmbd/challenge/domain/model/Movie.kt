@@ -1,5 +1,7 @@
 package de.pirrung.tmbd.challenge.domain.model
 
 data class Movie(
-    val title: String
+    val id: Int,
+    val title: String,
+    val posterUrl: String
 )

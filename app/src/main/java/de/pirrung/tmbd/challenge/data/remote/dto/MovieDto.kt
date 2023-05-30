@@ -1,6 +1,7 @@
 package de.pirrung.tmbd.challenge.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
+import de.pirrung.tmbd.challenge.data.remote.TMDBApi
 import de.pirrung.tmbd.challenge.domain.model.Movie
 
 data class MovieDto(
@@ -35,5 +36,10 @@ data class MovieDto(
 )
 
 fun MovieDto.toMovie() = Movie(
-    title = this.title
+    id = this.id,
+    title = this.title,
+    posterUrl = StringBuilder(TMDBApi.IMAGE_BASE_URL)
+        .append("w342")
+        .append(this.posterPath)
+        .toString()
 )
