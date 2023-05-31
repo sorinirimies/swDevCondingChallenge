@@ -58,17 +58,18 @@ class TMDBRepositoryImpl(
 
     override suspend fun getMovieDetails(
         movieId: Int
-    ): Flow<MovieDetails> {
+    ): Result<MovieDetails> {
         return try {
             val movieDetailsDto = api.getMovieDetails(
-                movieId = movieId
+                movieId = movieId,
+                appendToResponse = "credits,recommendations"
             )
-            flowOf(
+            Result.success(
                 movieDetailsDto.toMovieDetails()
             )
         } catch (e: Exception) {
             e.printStackTrace()
-            flowOf()
+            Result.failure(e)
         }
     }
 

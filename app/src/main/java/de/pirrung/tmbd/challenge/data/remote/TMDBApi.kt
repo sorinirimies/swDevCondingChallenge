@@ -11,6 +11,7 @@ interface TMDBApi {
     @GET("/3/movie/{movie_id}")
     suspend fun getMovieDetails(
         @Path("movie_id") movieId: Int,
+        @Query("append_to_response") appendToResponse: String
     ): MovieDetailsDto
 
     @GET("/3/movie/now_playing")

@@ -9,5 +9,5 @@ interface TMDBRepository {
     suspend fun getNowPlayingMovies(): Flow<List<Movie>>
     suspend fun getTopRatedMovies(): Flow<List<Movie>>
     suspend fun getUpcomingMovies(): Flow<List<Movie>>
-    suspend fun getMovieDetails(movieId: Int): Flow<MovieDetails>
+    suspend fun getMovieDetails(movieId: Int): Result<MovieDetails>
 }

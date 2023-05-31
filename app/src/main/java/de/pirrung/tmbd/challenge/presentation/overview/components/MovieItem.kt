@@ -1,5 +1,6 @@
 package de.pirrung.tmbd.challenge.presentation.overview.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -24,10 +25,14 @@ import de.pirrung.tmbd.challenge.domain.model.Movie
 @Composable
 fun MovieItemSmall(
     modifier: Modifier = Modifier,
-    movie: Movie
+    movie: Movie,
+    onMovieClick: (movie: Movie) -> Unit
 ) {
     Card(
         modifier = modifier
+            .clickable {
+                onMovieClick(movie)
+            }
     ) {
         Column(
             modifier = Modifier
@@ -59,17 +64,21 @@ fun MovieItemSmall(
 @Composable
 fun MovieItemLarge(
     modifier: Modifier = Modifier,
-    movie: Movie
+    movie: Movie,
+    onMovieClick: (movie: Movie) -> Unit
 ) {
     Card(
         modifier = modifier
+            .clickable {
+                onMovieClick(movie)
+            }
     ) {
         Column(
             modifier = Modifier
-                .width(200.dp)
+                .width(178.dp)
         ) {
             AsyncImage(
-                modifier = Modifier.height(150.dp),
+                modifier = Modifier.height(100.dp),
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(movie.backdropPosterUrl)
                     .crossfade(true)
