@@ -22,7 +22,7 @@ import de.pirrung.tmbd.challenge.R
 import de.pirrung.tmbd.challenge.domain.model.Movie
 
 @Composable
-fun MovieItem(
+fun MovieItemSmall(
     modifier: Modifier = Modifier,
     movie: Movie
 ) {
@@ -37,6 +37,41 @@ fun MovieItem(
                 modifier = Modifier.height(150.dp),
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(movie.posterUrl)
+                    .crossfade(true)
+                    .build(),
+                contentScale = ContentScale.Crop,
+                contentDescription = stringResource(id = R.string.movie_content_description)
+            )
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(5.dp),
+                text = movie.title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
+@Composable
+fun MovieItemLarge(
+    modifier: Modifier = Modifier,
+    movie: Movie
+) {
+    Card(
+        modifier = modifier
+    ) {
+        Column(
+            modifier = Modifier
+                .width(200.dp)
+        ) {
+            AsyncImage(
+                modifier = Modifier.height(150.dp),
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(movie.backdropPosterUrl)
                     .crossfade(true)
                     .build(),
                 contentScale = ContentScale.Crop,

@@ -2,4 +2,8 @@
     <string name="app_name">TMDB-Coding-Challenge</string>
     <string name="overview_top_app_bar_title">Movies</string>
     <string name="movie_content_description">Movie Poster</string>
+    <string name="overview_popular_movies_header">Popular</string>
+    <string name="overview_upcoming_movies_header">Upcoming</string>
+    <string name="overview_top_rated_movies_header">Top Rated</string>
+    <string name="overview_now_playing_movies_header">Now Playing</string>
 </resources>

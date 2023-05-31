@@ -41,5 +41,9 @@ fun MovieDto.toMovie() = Movie(
     posterUrl = StringBuilder(TMDBApi.IMAGE_BASE_URL)
         .append("w342")
         .append(this.posterPath)
+        .toString(),
+    backdropPosterUrl = StringBuilder(TMDBApi.IMAGE_BASE_URL)
+        .append("w1280")
+        .append(this.backdropPath)
         .toString()
 )

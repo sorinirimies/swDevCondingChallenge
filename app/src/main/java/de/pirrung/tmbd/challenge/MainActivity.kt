@@ -3,6 +3,7 @@ package de.pirrung.tmbd.challenge
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -24,13 +25,18 @@ class MainActivity : ComponentActivity() {
         println("TEST: ${BuildConfig.TMDB_API_KEY}")
         setContent {
             TMDBCodingChallengeTheme {
-                val navController = rememberNavController()
-                NavHost(
-                    navController = navController,
-                    startDestination = Route.OVERVIEW
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
                 ) {
-                    composable(Route.OVERVIEW) {
-                        MovieOverviewScreen()
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = Route.OVERVIEW
+                    ) {
+                        composable(Route.OVERVIEW) {
+                            MovieOverviewScreen()
+                        }
                     }
                 }
             }

@@ -15,6 +15,7 @@ import de.pirrung.tmbd.challenge.domain.model.Movie
 @Composable
 fun HorizontalMovieList(
     modifier: Modifier = Modifier,
+    movieContent: @Composable (movie: Movie) -> Unit,
     movies: List<Movie>
 ) {
     CompositionLocalProvider(
@@ -30,7 +31,7 @@ fun HorizontalMovieList(
                     it.id
                 }
             ) { movie ->
-                MovieItem(movie = movie)
+                movieContent(movie)
             }
         }
     }

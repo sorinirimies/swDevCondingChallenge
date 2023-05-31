@@ -24,7 +24,7 @@ class TMDBRepositoryImpl(
 
     override suspend fun getNowPlayingMovies(): Flow<List<Movie>> {
         return try {
-            val movieDto = api.getPopularMovies()
+            val movieDto = api.getNowPlayingMovies()
             flowOf(movieDto.results.map { it.toMovie() })
         } catch (e: Exception) {
             e.printStackTrace()
@@ -34,7 +34,7 @@ class TMDBRepositoryImpl(
 
     override suspend fun getTopRatedMovies(): Flow<List<Movie>> {
         return try {
-            val movieDto = api.getPopularMovies()
+            val movieDto = api.getTopRatedMovies()
             flowOf(
                 movieDto.results.map { it.toMovie() }
             )
@@ -46,7 +46,7 @@ class TMDBRepositoryImpl(
 
     override suspend fun getUpcomingMovies(): Flow<List<Movie>> {
         return try {
-            val movieDto = api.getPopularMovies()
+            val movieDto = api.getUpcomingMovies()
             flowOf(
                 movieDto.results.map { it.toMovie() }
             )
@@ -60,11 +60,11 @@ class TMDBRepositoryImpl(
         movieId: Int
     ): Flow<MovieDetails> {
         return try {
-            val movieDto = api.getMovieDetails(
+            val movieDetailsDto = api.getMovieDetails(
                 movieId = movieId
             )
             flowOf(
-                movieDto.toMovieDetails()
+                movieDetailsDto.toMovieDetails()
             )
         } catch (e: Exception) {
             e.printStackTrace()
