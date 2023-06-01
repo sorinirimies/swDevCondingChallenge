@@ -2,7 +2,9 @@ package de.pirrung.tmbd.challenge.data.remote.dto.details
 
 
 import com.google.gson.annotations.SerializedName
-import de.pirrung.tmbd.challenge.domain.model.MovieDetails
+import de.pirrung.tmbd.challenge.data.remote.TMDBApi
+import de.pirrung.tmbd.challenge.data.remote.dto.toMovie
+import de.pirrung.tmbd.challenge.domain.model.details.MovieDetails
 
 data class MovieDetailsDto(
     @SerializedName("adult")
@@ -10,11 +12,13 @@ data class MovieDetailsDto(
     @SerializedName("backdrop_path")
     val backdropPath: String,
     @SerializedName("belongs_to_collection")
-    val belongsToCollection: Any,
+    val belongsToCollection: BelongsToCollectionDto,
     @SerializedName("budget")
     val budget: Int,
+    @SerializedName("credits")
+    val credits: CreditsDto,
     @SerializedName("genres")
-    val genres: List<Genre>,
+    val genres: List<GenreDto>,
     @SerializedName("homepage")
     val homepage: String,
     @SerializedName("id")
@@ -32,9 +36,11 @@ data class MovieDetailsDto(
     @SerializedName("poster_path")
     val posterPath: String,
     @SerializedName("production_companies")
-    val productionCompanies: List<ProductionCompany>,
+    val productionCompanies: List<ProductionCompanyDto>,
     @SerializedName("production_countries")
-    val productionCountries: List<ProductionCountry>,
+    val productionCountries: List<ProductionCountryDto>,
+    @SerializedName("recommendations")
+    val recommendations: RecommendationsDto,
     @SerializedName("release_date")
     val releaseDate: String,
     @SerializedName("revenue")
@@ -42,7 +48,7 @@ data class MovieDetailsDto(
     @SerializedName("runtime")
     val runtime: Int,
     @SerializedName("spoken_languages")
-    val spokenLanguages: List<SpokenLanguage>,
+    val spokenLanguages: List<SpokenLanguageDto>,
     @SerializedName("status")
     val status: String,
     @SerializedName("tagline")
@@ -58,5 +64,19 @@ data class MovieDetailsDto(
 )
 
 fun MovieDetailsDto.toMovieDetails() = MovieDetails(
-    title = this.title
+    title = this.title,
+    genres = this.genres.map { it.toGenre() },
+    overview = this.overview,
+    credits = this.credits.toCredits(),
+    recommendations = this.recommendations.toRecommendations(),
+    posterUrl = StringBuilder(TMDBApi.IMAGE_BASE_URL)
+        .append("w342")
+        .append(this.posterPath)
+        .toString(),
+    backdropPosterUrl = StringBuilder(TMDBApi.IMAGE_BASE_URL)
+        .append("w1280")
+        .append(this.backdropPath)
+        .toString(),
+    voteAverage = this.voteAverage,
+    voteCount = this.voteCount
 )

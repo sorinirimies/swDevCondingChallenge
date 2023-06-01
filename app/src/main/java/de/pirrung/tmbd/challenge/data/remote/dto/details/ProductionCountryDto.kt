@@ -3,11 +3,9 @@ package de.pirrung.tmbd.challenge.data.remote.dto.details
 
 import com.google.gson.annotations.SerializedName
 
-data class SpokenLanguage(
-    @SerializedName("english_name")
-    val englishName: String,
-    @SerializedName("iso_639_1")
-    val iso6391: String,
+data class ProductionCountryDto(
+    @SerializedName("iso_3166_1")
+    val iso31661: String,
     @SerializedName("name")
     val name: String
 )

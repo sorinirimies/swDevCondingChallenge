@@ -1,7 +1,6 @@
 package de.pirrung.tmbd.challenge.presentation.details
 
-import de.pirrung.tmbd.challenge.domain.model.Movie
-import de.pirrung.tmbd.challenge.domain.model.MovieDetails
+import de.pirrung.tmbd.challenge.domain.model.details.MovieDetails
 
 sealed class DetailsViewState {
     object Loading : DetailsViewState()

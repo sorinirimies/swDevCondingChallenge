@@ -4,7 +4,7 @@ import de.pirrung.tmbd.challenge.data.remote.TMDBApi
 import de.pirrung.tmbd.challenge.data.remote.dto.details.toMovieDetails
 import de.pirrung.tmbd.challenge.data.remote.dto.toMovie
 import de.pirrung.tmbd.challenge.domain.model.Movie
-import de.pirrung.tmbd.challenge.domain.model.MovieDetails
+import de.pirrung.tmbd.challenge.domain.model.details.MovieDetails
 import de.pirrung.tmbd.challenge.domain.repository.TMDBRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf

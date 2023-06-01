@@ -1,7 +1,7 @@
 package de.pirrung.tmbd.challenge.domain.repository
 
 import de.pirrung.tmbd.challenge.domain.model.Movie
-import de.pirrung.tmbd.challenge.domain.model.MovieDetails
+import de.pirrung.tmbd.challenge.domain.model.details.MovieDetails
 import kotlinx.coroutines.flow.Flow
 
 interface TMDBRepository {

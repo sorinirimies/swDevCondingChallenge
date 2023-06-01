@@ -3,12 +3,16 @@ package de.pirrung.tmbd.challenge.presentation.details
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import de.pirrung.tmbd.challenge.domain.model.MovieDetails
+import androidx.compose.ui.unit.dp
+import de.pirrung.tmbd.challenge.domain.model.details.MovieDetails
+import de.pirrung.tmbd.challenge.presentation.details.components.RatingBar
 
 @Composable
 fun MovieDetailsScreen(
@@ -72,6 +76,11 @@ private fun AvailableContent(
     ) {
         Text(
             text = details.title
+        )
+        RatingBar(
+            modifier = Modifier.height(20.dp),
+            color = MaterialTheme.colorScheme.primary,
+            rating = 3.6
         )
     }
 }
