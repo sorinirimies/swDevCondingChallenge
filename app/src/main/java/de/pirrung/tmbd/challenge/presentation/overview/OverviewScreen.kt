@@ -5,6 +5,7 @@ import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
@@ -98,8 +99,7 @@ private fun LoadingContent(
 }
 
 @OptIn(
-    ExperimentalFoundationApi::class,
-    ExperimentalMaterial3Api::class
+    ExperimentalFoundationApi::class
 )
 @Composable
 private fun AvailableContent(
@@ -178,10 +178,13 @@ private fun MovieDetailsContent(
             sheetState = bottomSheetState,
             onDismissRequest = {
                 showBottomSheet.value = false
-            }
+            },
+            dragHandle = { Unit }
         ) {
             Column(
-                modifier = Modifier.fillMaxSize(0.9f),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(0.9f),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
