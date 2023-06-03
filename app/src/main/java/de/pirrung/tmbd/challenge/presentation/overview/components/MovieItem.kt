@@ -26,7 +26,7 @@ import de.pirrung.tmbd.challenge.domain.model.Movie
 fun MovieItemSmall(
     modifier: Modifier = Modifier,
     movie: Movie,
-    onMovieClick: (movie: Movie) -> Unit
+    onMovieClick: (movie: Movie) -> Unit? = { }
 ) {
     Card(
         modifier = modifier

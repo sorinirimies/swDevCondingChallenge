@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Genre(
+fun GenreItem(
     modifier: Modifier = Modifier,
     name: String
 ) {
@@ -30,7 +30,7 @@ fun Genre(
 @Composable
 @Preview(showBackground = true)
 fun GenrePreview() {
-    Genre(
+    GenreItem(
         name = "Action"
     )
 }

@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 import de.pirrung.tmbd.challenge.data.remote.TMDBApi
 import de.pirrung.tmbd.challenge.data.remote.dto.toMovie
 import de.pirrung.tmbd.challenge.domain.model.details.MovieDetails
+import kotlin.math.roundToInt
 
 data class MovieDetailsDto(
     @SerializedName("adult")
@@ -77,6 +78,7 @@ fun MovieDetailsDto.toMovieDetails() = MovieDetails(
         .append("w1280")
         .append(this.backdropPath)
         .toString(),
-    voteAverage = this.voteAverage,
+    rating = this.voteAverage / 2,
+    voteAverage = (this.voteAverage * 10.0).roundToInt() / 10.0,
     voteCount = this.voteCount
 )

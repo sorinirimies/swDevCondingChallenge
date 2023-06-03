@@ -43,20 +43,23 @@ fun RatingBar(
                 step.rem(rating) < 1 -> rating - (step - 1f)
                 else -> 0f
             }
-            RatingStar(stepRating.toFloat(), color)
+            RatingStar(
+                rating = stepRating.toFloat(),
+                color = color
+            )
         }
     }
 }
 
 @Composable
-private fun RatingStar(
+fun RatingStar(
+    modifier: Modifier = Modifier.fillMaxHeight(),
     rating: Float,
-    ratingColor: Color = Color.Yellow,
+    color: Color = Color.Yellow,
     backgroundColor: Color = Color.Gray
 ) {
     BoxWithConstraints(
-        modifier = Modifier
-            .fillMaxHeight()
+        modifier = modifier
             .aspectRatio(1f)
             .clip(starShape)
     ) {
@@ -74,7 +77,7 @@ private fun RatingStar(
             )
             if (rating > 0) {
                 drawRect(
-                    brush = SolidColor(ratingColor),
+                    brush = SolidColor(color),
                     size = Size(
                         height = size.height * 1.1f,
                         width = size.width * rating

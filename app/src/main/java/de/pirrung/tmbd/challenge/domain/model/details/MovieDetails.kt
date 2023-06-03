@@ -8,6 +8,7 @@ data class MovieDetails(
     val recommendations: Recommendations,
     val posterUrl: String,
     val backdropPosterUrl: String,
+    val rating: Double,
     val voteAverage: Double,
     val voteCount: Int
 )

@@ -7,4 +7,6 @@
     <string name="overview_upcoming_movies_header">Upcoming</string>
     <string name="overview_top_rated_movies_header">Top Rated</string>
     <string name="overview_now_playing_movies_header">Now Playing</string>
+    <string name="details_cast_and_crew_header">Cast &amp; Crew</string>
+    <string name="details_recommendation_header">Recommendations</string>
 </resources>

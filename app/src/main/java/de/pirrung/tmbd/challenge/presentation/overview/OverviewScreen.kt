@@ -24,6 +24,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import de.pirrung.tmbd.challenge.R
@@ -78,7 +80,7 @@ fun OverviewContent(
                     upcomingMovies = state.upcomingMovies,
                     onMovieClick = onMovieClick
                 )
-                MovieDetailsContent(
+                MovieDetailsSheet(
                     state = detailState,
                     uiEventFlow = uiEventFlow
                 )
@@ -148,9 +150,9 @@ private fun AvailableContent(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
-private fun MovieDetailsContent(
+private fun MovieDetailsSheet(
     modifier: Modifier = Modifier,
     state: DetailsViewState,
     uiEventFlow: SharedFlow<OverviewUiEvent>
@@ -174,21 +176,29 @@ private fun MovieDetailsContent(
 
     if (showBottomSheet.value) {
         ModalBottomSheet(
-            modifier = modifier,
+            modifier = modifier
+                .nestedScroll(rememberNestedScrollInteropConnection()),
             sheetState = bottomSheetState,
             onDismissRequest = {
                 showBottomSheet.value = false
             },
             dragHandle = { Unit }
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(0.9f),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+            CompositionLocalProvider(
+                LocalOverscrollConfiguration provides null
             ) {
-                MovieDetailsScreen(state = state)
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(0.9f)
+                        .verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    MovieDetailsScreen(
+                        modifier = Modifier.fillMaxSize(),
+                        state = state
+                    )
+                }
             }
         }
     }
