@@ -1,6 +1,5 @@
 package de.pirrung.tmbd.challenge.data.remote
 
-import de.pirrung.tmbd.challenge.data.remote.dto.MovieDto
 import de.pirrung.tmbd.challenge.data.remote.dto.MovieResponse
 import de.pirrung.tmbd.challenge.data.remote.dto.details.MovieDetailsDto
 import retrofit2.http.GET

@@ -10,5 +10,4 @@ class GetPopularMovies(
     suspend operator fun invoke(): Flow<List<Movie>> {
         return repository.getPopularMovies()
     }
-
 }

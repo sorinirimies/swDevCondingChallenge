@@ -11,5 +11,4 @@ class GetMovieDetails(
     ): Result<MovieDetails> {
         return repository.getMovieDetails(movieId)
     }
-
 }

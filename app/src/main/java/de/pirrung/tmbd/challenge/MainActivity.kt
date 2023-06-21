@@ -12,7 +12,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.unit.dp
 import de.pirrung.tmbd.challenge.presentation.overview.MovieOverviewScreen
 import de.pirrung.tmbd.challenge.presentation.overview.components.OverviewTopAppBar

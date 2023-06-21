@@ -3,10 +3,16 @@ package de.pirrung.tmbd.challenge.presentation.details
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import de.pirrung.tmbd.challenge.R
 import de.pirrung.tmbd.challenge.domain.model.details.MovieDetails
 import de.pirrung.tmbd.challenge.presentation.details.components.DetailsContent
 
@@ -46,7 +52,9 @@ private fun DetailContent(
 
             is DetailsViewState.Error -> {
                 ErrorContent(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(15.dp)
                 )
             }
         }
@@ -87,6 +95,9 @@ private fun ErrorContent(
     Column(
         modifier = modifier
     ) {
-
+        Text(
+            text = stringResource(R.string.details_error_message),
+            style = MaterialTheme.typography.bodyLarge
+        )
     }
 }

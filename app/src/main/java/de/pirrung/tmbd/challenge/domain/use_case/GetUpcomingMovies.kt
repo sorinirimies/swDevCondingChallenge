@@ -11,5 +11,4 @@ class GetUpcomingMovies(
     suspend operator fun invoke(): Flow<List<Movie>> {
         return repository.getUpcomingMovies()
     }
-
 }

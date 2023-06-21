@@ -74,7 +74,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.4.0")
 
     // Koin
-    implementation("io.insert-koin:koin-androidx-compose:3.4.2")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.5")
 
     // Retrofit and OkHttp
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

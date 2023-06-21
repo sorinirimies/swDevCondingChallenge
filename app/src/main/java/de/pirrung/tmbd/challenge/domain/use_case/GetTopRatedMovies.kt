@@ -11,5 +11,4 @@ class GetTopRatedMovies(
     suspend operator fun invoke(): Flow<List<Movie>> {
         return repository.getTopRatedMovies()
     }
-
 }
